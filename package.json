@@ -1,0 +1,68 @@
+{
+    "name": "a11y-bug",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "prebuild": "yarn clean:dist",
+        "clean:dist": "rimraf dist",
+        "desktop": "cross-env NODE_ENV=development concurrently -k -c 'auto' 'yarn:dev*'",
+        "dev:renderer": "cross-env NODE_ENV=development START_ELECTRON=true webpack serve --mode development",
+        "dev:preload": "cross-env NODE_ENV=development webpack --config electron/config/webpack.preload.config.ts --mode development --watch",
+        "dev:main": "cross-env NODE_ENV=development webpack --config electron/config/webpack.main.config.ts --mode development --watch",
+        "dev:typecheck": "yarn typecheck:watch",
+        "electron": "electronmon ./dist/main/main.js",
+        "web": "cross-env NODE_ENV=development webpack serve --mode development",
+        "tsc": "tsc",
+        "typecheck": "tsc",
+        "typecheck:watch": "yarn typecheck --watch"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.27.1",
+        "@babel/preset-env": "^7.27.1",
+        "@babel/preset-react": "^7.27.1",
+        "@babel/preset-typescript": "^7.27.1",
+        "@pmmmwh/react-refresh-webpack-plugin": "^0.6.0",
+        "@types/cross-spawn": "^6.0.6",
+        "@types/electron": "^1.6.12",
+        "@types/react": "^19.1.2",
+        "@types/react-native": "^0.73.0",
+        "babel-loader": "^10.0.0",
+        "babel-plugin-react-native-web": "^0.20.0",
+        "concurrently": "^9.1.2",
+        "cross-env": "^7.0.3",
+        "cross-spawn": "^7.0.6",
+        "css-loader": "^7.1.2",
+        "electron": "^36.1.0",
+        "electron-devtools-installer": "^4.0.0",
+        "electronmon": "^2.0.3",
+        "html-webpack-plugin": "^5.6.3",
+        "prettier": "^3.5.3",
+        "rimraf": "^6.0.1",
+        "style-loader": "^4.0.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.3",
+        "webpack": "^5.99.7",
+        "webpack-cli": "^6.0.1",
+        "webpack-dev-server": "^5.2.1"
+    },
+    "dependencies": {
+        "@react-navigation/elements": "^2.4.1",
+        "@react-navigation/native": "^7.1.8",
+        "@react-navigation/stack": "^7.3.1",
+        "electron-window-state": "^5.0.3",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "react-native-safe-area-context": "^5.4.0",
+        "react-native-screens": "^4.10.0",
+        "react-native-web": "^0.20.0"
+    },
+    "electronmon": {
+        "patterns": [
+            "!**/*",
+            "dist/main/main.js",
+            "dist/preload/preload.js"
+        ]
+    }
+}

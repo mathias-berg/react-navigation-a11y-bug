@@ -1,0 +1,30 @@
+/* Prevents the user from selcting text */
+* {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* These styles make the body full-height */
+html,
+body {
+    height: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* These styles disable body scrolling if you are using <ScrollView> */
+body {
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* These styles make the root element full-height */
+#root {
+    display: flex;
+    height: 100%;
+    flex: 1;
+}

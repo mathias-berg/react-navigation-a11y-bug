@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "target": "es2023",
+        "allowJs": true,
+        "resolveJsonModule": true,
+        "moduleDetection": "force",
+        "isolatedModules": true,
+
+        "strict": true,
+
+        "moduleResolution": "node10",
+        "module": "CommonJS",
+        "noEmit": true,
+        "preserveWatchOutput": true,
+        "pretty": true,
+
+        "lib": ["ES2023", "DOM"],
+        "baseUrl": "./",
+        "paths": {
+            "react-native": ["node_modules/react-native-web"],
+        },
+        "noErrorTruncation": true
+    },
+    "include": ["src", "electron"],
+    "exclude": ["node_modules", "out", "dist", "build"]
+}
